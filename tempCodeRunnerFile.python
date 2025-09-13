@@ -1,0 +1,23 @@
+def is_secret_code_possible(X):
+    target = X + 4
+    
+    # Iterate over all possible divisors up to sqrt(target)
+    for i in range(1, int(target**0.5) + 1):
+        if target % i == 0:
+            a_plus_2 = i
+            b_plus_2 = target // i
+            
+            a = a_plus_2 - 2
+            b = b_plus_2 - 2
+            
+            if a > 0 and b > 0:
+                return "YES"
+    
+    return "NO"
+
+# Read number of test cases
+T = int(input())
+
+for _ in range(T):
+    X = int(input())
+    print(is_secret_code_possible(X))
